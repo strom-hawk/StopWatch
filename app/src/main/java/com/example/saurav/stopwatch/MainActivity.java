@@ -25,23 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean running = false;
     private Handler handler;
-    Runnable updateTimerThread = new Runnable() {
-
-        @Override
-        public void run() {
-            timeInMili = SystemClock.uptimeMillis() - startTime;
-            updateTime = timeSwapBuffer + timeInMili;
-            int secs = (int) (updateTime / 1000);
-            int min = secs / 60;
-            secs %= 60;
-
-            viewSec.setText(String.format("%02d", secs));
-            viewMin.setText(String.format("%02d", min));
-            viewMiliSec.setText(String.format("%03d", timeInMili));
-
-            handler.postDelayed(this, 0);
-        }
-    };
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,4 +71,22 @@ public class MainActivity extends AppCompatActivity {
         viewMiliSec.setText(String.format("%03d", startTime));
         startButton.setText(getString(R.string.start));
     }
+
+    Runnable updateTimerThread = new Runnable() {
+
+        @Override
+        public void run() {
+            timeInMili = SystemClock.uptimeMillis() - startTime;
+            updateTime = timeSwapBuffer + timeInMili;
+            int secs = (int) (updateTime / 1000);
+            int min = secs / 60;
+            secs %= 60;
+
+            viewSec.setText(String.format("%02d", secs));
+            viewMin.setText(String.format("%02d", min));
+            viewMiliSec.setText(String.format("%03d", timeInMili % 1000));
+
+            handler.postDelayed(this, 0);
+        }
+    };
 }
