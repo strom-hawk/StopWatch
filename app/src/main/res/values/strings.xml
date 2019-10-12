@@ -3,4 +3,11 @@
     <string name="stop">STOP</string>
     <string name="start">START</string>
     <string name="reset">RESET</string>
+    <string name="resume">RESUME</string>
+    <string name="minute">MINUTE</string>
+    <string name="second">SECOND</string>
+    <string name="millisecond">MILLISECOND</string>
+    <string name="timeFormat01">00</string>
+    <string name="timeFormat02">000</string>
+
 </resources>

@@ -1,133 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context="com.example.saurav.stopwatch.MainActivity">
+    android:background="@color/colorPrimary">
+    <!--android:background="@drawable/background"-->
 
-    <RelativeLayout
-        android:id="@+id/drawingLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#000000">
+    <View
+        android:id="@+id/watchBoundary"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="280dp"
+        android:background="@drawable/circlebackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:layout_width="370dp"
-            android:layout_height="370dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp"
-            android:background="@drawable/circlebackground"/>
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="200dp"
+        android:layout_height="2dp"
+        android:layout_centerHorizontal="true"
+        android:background="#4cd137"
+        app:layout_constraintBottom_toTopOf="@id/startButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <View
-            android:id="@+id/lineView"
-            android:layout_height="2dp"
-            android:layout_width="200dp"
-            android:background="#4cd137"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="335dp"
-            />
+    <TextView
+        android:id="@+id/minuteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginBottom="320dp"
+        android:text="@string/minute"
+        android:textColor="@color/colorSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/startButton"
-            android:layout_width="140dp"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="340dp"
-            android:text="START"
-            android:textColor="#ffffff"
-            android:background="#000000"/>
+    <TextView
+        android:id="@+id/secondTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/second"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/minuteTextView"
+        app:layout_constraintStart_toStartOf="@id/minuteTextView"
+        app:layout_constraintTop_toBottomOf="@id/minuteTextView" />
 
-        <Button
-            android:id="@+id/resetButton"
-            android:layout_width="140dp"
-            android:layout_height="70dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="12dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp"
-            android:background="#000000"
-            android:text="RESET"
-            android:textColor="#ffffff" />
+    <TextView
+        android:id="@+id/millisecondTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/millisecond"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/minuteTextView"
+        app:layout_constraintTop_toBottomOf="@id/secondTextView" />
 
-        <TextView
-            android:id="@+id/minuteText"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="MINUTE"
-            android:textSize="20dp"
-            android:textColor="#a9a9a9"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="163dp"
-            />
+    <TextView
+        android:id="@+id/viewMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/timeFormat01"
+        android:textColor="@color/colorSecondary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@id/minuteTextView"
+        app:layout_constraintEnd_toStartOf="@id/minuteTextView"
+        app:layout_constraintTop_toTopOf="@id/minuteTextView" />
 
-        <TextView
-            android:id="@+id/secondText"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="SECOND"
-            android:textSize="20dp"
-            android:textColor="#a9a9a9"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="223dp"
-            />
+    <TextView
+        android:id="@+id/viewSec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/timeFormat01"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@id/secondTextView"
+        app:layout_constraintEnd_toStartOf="@id/secondTextView"
+        app:layout_constraintTop_toTopOf="@id/secondTextView" />
 
-        <TextView
-            android:id="@+id/milisecondText"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="MILISECOND"
-            android:textSize="15dp"
-            android:textColor="#a9a9a9"
-            android:layout_marginLeft="190dp"
-            android:layout_marginTop="285dp"
-            />
-
-        <TextView
-            android:id="@+id/viewMin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="150dp"
-            android:text="00"
-            android:textSize="50dp"
-            android:textColor="#4cd137"
-            android:visibility="visible"/>
-
-        <TextView
-            android:id="@+id/viewSec"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="210dp"
-            android:text="00"
-            android:textSize="50dp"
-            android:textColor="#ffffff"
-            android:visibility="visible"/>
-
-        <TextView
-            android:id="@+id/viewMiliSec"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="280dp"
-            android:text="000"
-            android:textSize="25dp"
-            android:textColor="#ffffff"
-            android:visibility="visible"/>
-
-        <TextView
-            android:id="@+id/signature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_alignParentRight="true"
-            android:textColor="#4cd137"
-            android:text="Storm_Hawk"/>
+    <TextView
+        android:id="@+id/viewMiliSec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/timeFormat02"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/millisecondTextView"
+        app:layout_constraintEnd_toStartOf="@id/millisecondTextView"
+        app:layout_constraintTop_toTopOf="@id/millisecondTextView" />
 
 
-    </RelativeLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="70dp"
+        android:background="#000000"
+        android:onClick="onStartOnPause"
+        android:text="@string/start"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:onClick="onReset"
+        android:text="@string/reset"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
