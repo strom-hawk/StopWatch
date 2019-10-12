@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStartOnPause(View view) {
         running = !running;
         if (running) {
-            startButton.setText(getString(R.string.reset));
+            startButton.setText(getString(R.string.pause));
             resetButton.setVisibility(View.INVISIBLE);
             startTime = SystemClock.uptimeMillis();
             handler.postDelayed(updateTimerThread, 0);
